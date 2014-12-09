@@ -1,0 +1,278 @@
+  @font-face {
+	font-family: Harry Potter;
+	src: local("Harry Potter"),
+	url('../fonts/harrypotter.woff') format('woff'), 
+	url('../fonts/harrypotter.ttf') format('truetype'), 
+	url('../fonts/harrypotter.otf') format('opentype');
+	font-weight: normal;
+  }
+
+  body, html {
+	margin: 0;
+	background-color: black;
+	color: white;
+	background-color: #030312;
+  }
+  
+  input { 
+	border: 1px solid #848484;
+	border-radius: 30px; 
+	padding-left:10px; 
+	padding-right:10px; 
+	width: 60%;
+	margin-left: 1rem;
+	font-size: 2rem;
+  }
+  
+  #tileOptionsName input:focus {
+	border: 1px solid #0082B9; 
+	box-shadow: 0 0 5px 3px #0082B9; 
+	color: #666; 
+  }
+  
+  #tileTakePicture, #tileChoiceFilter, #tileImagePreview, #tileOptionsName #tileInfos {
+	position: absolute;
+	width: 100%;
+	height: 90%;
+  }
+  
+  #filter {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+  }
+  
+  #contentVideo {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+  }
+  
+  #contentCanvas {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+  }
+  
+  /* PC et tablettes */
+  @media only screen and (min-width: 768px) {
+	#filter img {
+		margin: auto;
+		height: 100%;
+	}
+	
+	#canvas {
+		margin: auto;
+		height: 100%;
+	}
+	
+	#snap, #save {
+		left: 1rem;
+		top: 1rem;
+		width: 7rem;
+		height: 7rem;
+		z-index: 10;
+	}
+  }
+  
+  /* Téléphones */
+  @media only screen and (max-width: 767px) {
+	 
+	#filter img {
+		display: block;
+		width: 100%;
+		top: 0;
+		position: absolute;
+		z-index: 3;
+	}
+	
+	#contentVideo video {
+		display: block;
+		width: 100%;
+		top: 0;
+		position: absolute;
+		z-index: 2;
+	}
+	
+	#canvas {
+		display: block;
+		width: 100%;
+		top: 0;
+		position: absolute;
+	}
+	
+	#snap, #save {
+		margin-left: auto;
+		margin-right: auto;
+		width: 6rem;
+		height: 6rem;
+		left: 0;
+		right: 0;
+		bottom: 12%;
+		z-index: 10;
+	}
+	
+	#compatibilite {
+		visibility: hidden;
+		overflow: hidden;
+	}
+  }
+  
+  #menuBottom {
+	position: fixed;
+	width: 100%;
+	height: 10%;
+	z-index: 10;
+	bottom: 0;
+  }
+  
+  .menuList {
+	display: -webkit-flex;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	flex-wrap: nowrap;
+	margin: 0;
+	padding: 0;
+  }
+  
+  .menuList li {
+	width: 20%;
+	height: 100%;
+	text-align: center;
+  }
+  
+  .menuList li:hover {
+	cursor: pointer;
+  }
+  
+  .menuList li:active{
+	background-color: #00405D;
+	color: black;
+  }
+  
+  #snap {
+	position: fixed;
+	background-color: #00405D;
+	border: none;
+	padding: 0;
+	background-image: url("../images/menu/focus-icon.png");
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size: contain;
+	border-radius: 50%;
+  }
+  
+  #snap:hover {
+	cursor: pointer;
+  }
+  
+  #snap:active {
+	background-color: #007AAE;
+  }
+  
+  #save {
+	position: fixed;
+	background-color: #00405D;
+	border: none;
+	padding: 0;
+	background-image: url("../images/menu/save-icon.png");
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size: contain;
+	border-radius: 50%;
+  }
+  
+  #save:hover {
+	cursor: pointer;
+  }
+  
+  #save:active {
+	background-color: #007AAE;
+	box-shadow: none;
+	border: none; 
+  }
+  
+  .menuList li {background-color: #161616; color: #FFFFFF; padding: 0; list-style: none;}
+	
+  .tileInvisible {
+	height: 0;
+	visibility: hidden;
+	overflow: hidden;
+  }
+  
+  .tileVisible {
+	height: 90%;
+	visibility: visible;		
+	overflow: hidden;
+  }
+  
+  .imageFilter {
+	max-height: 30%;
+  }
+  
+  .imageFilter:hover {
+	cursor: pointer;
+  }
+  
+  #buttonSeePreview {
+	background-image: url("../images/menu/image-icon.png");
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size: contain;
+  }
+  #buttonTakePicture {
+	background-image: url("../images/menu/camera-icon.png");
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size: contain;
+  }
+  #buttonOptionsName {
+	background-image: url("../images/menu/name-icon.png");
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size: contain;
+  }
+  #buttonPutFilter {
+	background-image: url("../images/menu/card-icon.png");
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size: contain;
+  }
+  #buttonInfo {
+	background-image: url("../images/menu/info-icon.png");
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size: contain;
+  }
+  
+  label {
+	font-family: Harry Potter;
+	font-size: 2rem;
+	margin-left: 1rem;
+  }
+  
+  #tileInfos p {
+	margin-left: 1rem;
+	font-size: 1rem;
+  }
+  
+  .currentButton {
+	background-color: #292929;
+  }
+  
+  #canvas-filename {
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+	border: none;
+	margin: 0;
+	padding: 0;
+  }
+  
+  .invisible {
+	visibility: hidden;
+	overflow: hidden;
+  }

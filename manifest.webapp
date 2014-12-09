@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "name": "Chocogrenouille",
+  "description": "Que ce soit avec votre smartphone ou votre webcam, l'application Chocogrenouille vous permettra de créer vos propres cartes de sorciers et sorcières célèbres. Faites marcher votre imagination et créer la plus extraordinaire des cartes.",
+  "launch_path": "/index.html",
+  "icons": {
+    "16": "/icons/icon16x16.png",
+    "48": "/icons/icon48x48.png",
+    "60": "/icons/icon60x60.png",
+    "128": "/icons/icon128x128.png"
+  },
+  "type": "privileged",
+  "developer": "Philippe Joulot",
+  "orientation": "portrait",
+  "permissions": {
+    "video-capture": {
+      "description": "Required to capture video via getUserMedia"
+    }
+  },
+  "default_locale": "fr",
+  "locales": {
+	  "en": {
+		"name": "Chocofrog",
+		"description": "With your smartphone or webcam, Chocolate Frog app let you create your own cards of famous witches and wizards. Use your imagination and make the most extraordinary card."
+	  },
+	  "es": {
+		"name": "Rana de chocolate",
+		"description": "Con el teléfono inteligente o webcam,"
+	  }
+  }
+}
