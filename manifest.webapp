@@ -10,7 +10,10 @@
     "128": "/icons/icon128x128.png"
   },
   "type": "privileged",
-  "developer": "Philippe Joulot",
+  "developer": {
+    "name": "Philippe Joulot",
+    "url": "http://www.philippejoulot.fr"
+  },
   "orientation": "portrait",
   "permissions": {
     "video-capture": {
@@ -25,7 +28,7 @@
 	  },
 	  "es": {
 		"name": "Rana de chocolate",
-		"description": "Con el teléfono inteligente o webcam,"
+		"description": "Con el teléfono inteligente o webcam, la aplicación Rana del chocolate permite crear sus propias cartas de brujas y magos famosos. Usa tu imaginación para crear las más extraordinarias cartas."
 	  }
   }
 }
