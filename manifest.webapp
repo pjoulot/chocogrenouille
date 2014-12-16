@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "name": "Chocogrenouille",
   "description": "Que ce soit avec votre smartphone ou votre webcam, l'application Chocogrenouille vous permettra de créer vos propres cartes de sorciers et sorcières célèbres. Faites marcher votre imagination et créer la plus extraordinaire des cartes.",
   "launch_path": "/index.html",
@@ -9,7 +9,7 @@
     "60": "/icons/icon60x60.png",
     "128": "/icons/icon128x128.png"
   },
-  "type": "privileged",
+  "type": "web",
   "developer": {
     "name": "Philippe Joulot",
     "url": "http://www.philippejoulot.fr"
