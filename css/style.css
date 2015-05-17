@@ -24,6 +24,10 @@
 	font-size: 2rem;
   }
   
+  #formSave input {
+	margin-left: 0;
+  }
+  
   #tileOptionsName input:focus {
 	border: 1px solid #0082B9; 
 	box-shadow: 0 0 5px 3px #0082B9; 
