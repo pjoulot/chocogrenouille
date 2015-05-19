@@ -31,21 +31,6 @@ window.addEventListener( "load", function() {
 				
 				console.log("Screen: "+screen.height + ":" + screen.width);
 				
-				if(screen.width >= screen.height) {
-					if(filter.offsetHeight)          {filterHeight=filter.offsetHeight;}
-					else if(filter.style.pixelHeight){filterHeight=filter.style.pixelHeight;}
-					
-					var width = video.videoWidth / (video.videoHeight/filterHeight);
-					video.height = filterHeight;
-				}
-				else {
-					if(filter.offsetWidth)          {filterWidth=filter.offsetWidth;}
-					else if(filter.style.pixelWidth){filterWidth=filter.style.pixelWidth;}
-					
-					var height = video.videoHeight / (video.videoWidth/filterWidth);
-					video.width = filterWidth;
-				}
-				
                 video.play();
 				
 				console.log(video.height + ":" + video.width);
@@ -68,11 +53,27 @@ window.addEventListener( "load", function() {
     takeScreenshot = function() {
 		canvas.className = "";
 		var queryfilter = document.querySelector( '#filter img' );
+		
         w = queryfilter.width;
         h = queryfilter.height;
+		
+		
+		
+		console.log("queryfilter Size");
+		console.log(w);
+		console.log(h);
         
-        canvas.width = video.offsetWidth;
-		canvas.height = video.offsetHeight;
+		
+		console.log("Video Offset");
+		console.log(video.offsetWidth);
+		console.log(video.offsetHeight);
+		console.log("Video Size");
+		console.log(video.videoWidth);
+		console.log(video.videoHeight);
+		
+		
+        canvas.width = video.videoWidth;
+		canvas.height = video.videoHeight;
 		
 		if(screen.width >= screen.height) {
 			var height = video.videoHeight / (video.videoWidth/canvas.width);
@@ -88,13 +89,31 @@ window.addEventListener( "load", function() {
 		//Dessiner le filtre
 		var filterimg = new Image();
 		filterimg.src = document.getElementById("filterImage").src;
-		context.drawImage( filterimg, 0, 0, w, h );
+		
+		var imgFilter = document.getElementById("filterImage");
+		var imgFilterHeight = imgFilter.height;
+		var imgFilterWidth = imgFilter.width;
+		
+		
+		
+		//ratio par rapport à la hauteur
+		var ratioHeigthResize = imgFilterHeight / video.videoHeight;
+		var widthVideo = video.videoWidth * ratioHeigthResize;
+		var heightVideo = imgFilterHeight;	
+		
+		var imgWidth = Math.round(imgFilterWidth * (canvas.height /imgFilterHeight ));
+		var imgHeight = canvas.height;
+
+		var offsetCenterImg = ((widthVideo - imgFilterWidth)/2) * (canvas.width / widthVideo);
+		
+		context.drawImage( filterimg, offsetCenterImg, 0, imgWidth, imgHeight );
 		
 		//Ecrire le nom
 		drawName();
 		
 		//Ecrire le numero de la carte
 		drawNumero();
+		
 		
 		context.globalAlpha=1;
 		buttonSeePreview.click();
@@ -242,8 +261,11 @@ window.addEventListener( "load", function() {
 		filter.innerHTML = "";
 		filter.appendChild(image);
 		var filterImage = document.getElementById("filterImage");
-		video.width = filterImage.width;
-		video.height = filterImage.height;
+		//video.width = video.videoWidth;
+		//video.height = video.videoHeight;
+		
+		console.log("Video Dimensions"+video.videoWidth+"x"+video.videoHeight);
+		console.log("Filter Dimensions"+filterImage.width+"x"+filterImage.height);
 	}
 	
 	/*
