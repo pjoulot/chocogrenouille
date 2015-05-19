@@ -108,12 +108,6 @@ window.addEventListener( "load", function() {
 		
 		context.drawImage( filterimg, offsetCenterImg, 0, imgWidth, imgHeight );
 		
-		//Ecrire le nom
-		drawName();
-		
-		//Ecrire le numero de la carte
-		drawNumero();
-		
 		
 		context.globalAlpha=1;
 		buttonSeePreview.click();
@@ -193,8 +187,6 @@ window.addEventListener( "load", function() {
 	*/
 	refreshCard = function() {
 		drawFilter();
-		drawNumero();
-		drawName();
 	}
 	
 	/*
@@ -229,6 +221,8 @@ window.addEventListener( "load", function() {
     or.addEventListener( 'click', setFilterOr );
 	var bronze = document.getElementById("bronze"); 
     bronze.addEventListener( 'click', setFilterBronze );
+	var filter4 = document.getElementById("filter4"); 
+    filter4.addEventListener( 'click', setFilter4 );
 	
 	var buttonPutFilter = document.getElementById("buttonPutFilter");
 	buttonPutFilter.addEventListener( 'click', makeVisible );
@@ -239,17 +233,8 @@ window.addEventListener( "load", function() {
 	var buttonSeePreview = document.getElementById("buttonSeePreview");
 	buttonSeePreview.addEventListener( 'click', makeVisible );
 	
-	var buttonOptionsName = document.getElementById("buttonOptionsName");
-	buttonOptionsName.addEventListener( 'click', makeVisible );
-	
 	var buttonOptionsName = document.getElementById("buttonInfo");
 	buttonOptionsName.addEventListener( 'click', makeVisible );
-	
-	var numeroInput = document.getElementById("numero");
-	numeroInput.addEventListener( 'change', refreshCard );
-	
-	var nomInput = document.getElementById("nom");
-	nomInput.addEventListener( 'change', refreshCard );
 	
 	/*
 		Fonction qui applique un filtre par dessus le flux vidéo de la prise de photo
@@ -289,6 +274,12 @@ window.addEventListener( "load", function() {
 	*/
 	function setFilterBronze() {
 		setFilter("images/filters/cadrechocogrenouillebronze.png");
+		refreshCard();
+		buttonTakePicture.click();
+	}
+	
+	function setFilter4() {
+		setFilter("images/filters/filter-4.png");
 		refreshCard();
 		buttonTakePicture.click();
 	}

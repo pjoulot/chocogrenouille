@@ -1,9 +1,9 @@
-  @font-face {
-	font-family: Harry Potter;
-	src: local("Harry Potter"),
-	url('../fonts/harrypotter.woff') format('woff'), 
-	url('../fonts/harrypotter.ttf') format('truetype'), 
-	url('../fonts/harrypotter.otf') format('opentype');
+@font-face {
+	font-family: FiraSans;
+	src: local("FiraSans"),
+	url('../fonts/FiraSans-Regular.woff') format('woff'), 
+	url('../fonts/FiraSans-Regular.ttf') format('truetype'), 
+	url('../fonts/FiraSans-Regular.otf') format('opentype');
 	font-weight: normal;
   }
 
@@ -11,7 +11,7 @@
 	margin: 0;
 	background-color: black;
 	color: white;
-	background-color: #030312;
+	background-color: #001516;
   }
   
   input { 
@@ -143,7 +143,7 @@
   }
   
   .menuList li {
-	width: 20%;
+	width: 25%;
 	height: 100%;
 	text-align: center;
   }
@@ -153,13 +153,13 @@
   }
   
   .menuList li:active{
-	background-color: #00405D;
+	background-color: #007378;
 	color: black;
   }
   
   #snap {
 	position: fixed;
-	background-color: #00405D;
+	background-color: #007378;
 	border: none;
 	padding: 0;
 	background-image: url("../images/menu/focus-icon.png");
@@ -179,7 +179,7 @@
   
   #save {
 	position: fixed;
-	background-color: #00405D;
+	background-color: #007378;
 	border: none;
 	padding: 0;
 	background-image: url("../images/menu/save-icon.png");
@@ -215,6 +215,9 @@
   
   .imageFilter {
 	max-height: 30%;
+	background-color: #002D2F;
+	margin: 10px;
+	margin-right: 0;
   }
   
   .imageFilter:hover {
@@ -253,8 +256,8 @@
   }
   
   label {
-	font-family: Harry Potter;
-	font-size: 2rem;
+	font-family: FiraSans;
+	font-size: 1.7rem;
 	margin-left: 1rem;
   }
   
