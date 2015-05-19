@@ -108,6 +108,7 @@ window.addEventListener( "load", function() {
 		
 		context.drawImage( filterimg, offsetCenterImg, 0, imgWidth, imgHeight );
 		
+		drawName();
 		
 		context.globalAlpha=1;
 		buttonSeePreview.click();
@@ -118,13 +119,18 @@ window.addEventListener( "load", function() {
 	*/
 	drawName = function() {
 		if(screen.width >= screen.height) {
-			var pourcentNom = 0.915;
-			context.font = "20pt Harry Potter";
+			var pourcentNom = 0.955;
+			context.font = "12px FiraSans";
 		}
 		else {
-			var pourcentNom = 0.935;
-			context.font = "20pt Harry Potter";
+			var pourcentNom = 0.965;
+			context.font = "12px FiraSans";
 		}
+		
+		context.globalAlpha=0.75;
+		context.rect(0, canvas.height - 30, canvas.width, 30);
+		context.fill();
+		
 		context.textAlign = 'center';
 		context.fillStyle = 'white';
 		context.shadowOffsetX = 5;
@@ -132,38 +138,7 @@ window.addEventListener( "load", function() {
 		context.shadowBlur = 5;
 		context.shadowColor = "black";
 		context.globalAlpha=0.75;
-		context.fillText(document.getElementById("nom").value, canvas.width / 2, pourcentNom * canvas.height);
-		
-		//Réinitialisation des ombres
-		context.shadowColor = "transparent";
-		context.shadowOffsetX = 0;
-		context.shadowOffsetY = 0;
-		context.shadowBlur = 0;
-		context.globalAlpha= 1;
-	}
-	
-	/*
-		Fonction qui dessine le numéro choisi par l'utilisateur
-	*/
-	drawNumero = function() {
-		if(screen.width >= screen.height) {
-			var pourcentNumeroHeight = 0.465;
-			var pourcentNumeroWidth = 0.14;
-			context.font = "bold 30pt Harry Potter";
-		}
-		else {
-			var pourcentNumeroHeight = 0.475;
-			var pourcentNumeroWidth = 0.13;
-			context.font = "bold 25pt Harry Potter";
-		}
-		context.textAlign = 'left';
-		context.fillStyle = 'white';
-		context.shadowOffsetX = 5;
-		context.shadowOffsetY = 5;
-		context.shadowBlur = 5;
-		context.shadowColor = "black";
-		context.globalAlpha=0.75;
-		context.fillText(document.getElementById("numero").value, canvas.width * pourcentNumeroWidth, pourcentNumeroHeight * canvas.height);
+		context.fillText("Green Arrow France - www.green-arrow-france.fr/Photoshoot", canvas.width / 2, canvas.height - 10);
 		
 		//Réinitialisation des ombres
 		context.shadowColor = "transparent";
@@ -187,6 +162,7 @@ window.addEventListener( "load", function() {
 	*/
 	refreshCard = function() {
 		drawFilter();
+		drawName();
 	}
 	
 	/*
