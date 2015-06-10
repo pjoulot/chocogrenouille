@@ -301,4 +301,17 @@
 	#formSave input {
 		margin-left: auto;
 	}
+	
+	#tileImagePreview {
+		display: table;
+	}
+	
+	#contentCanvas {
+		position: relative;
+		display: table-cell;
+		vertical-align: middle;
+	}
+	#canvas {
+		position: relative;
+	}
   }
