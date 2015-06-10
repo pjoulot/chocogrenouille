@@ -297,4 +297,8 @@
 		visibility: hidden;
 		overflow: hidden;
 	}
+	
+	#formSave input {
+		margin-left: auto;
+	}
   }
