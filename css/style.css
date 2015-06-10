@@ -82,58 +82,6 @@
 	}
   }
   
-  /* Téléphones */
-  @media only screen and (max-width: 767px) {
-	 
-	#filter img {
-		display: block;
-		width: 100%;
-		height: 100%;
-	}
-	
-	#filter-container {
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		display: table;
-	}
-	
-	#filter {
-		display: table-cell;
-		vertical-align: middle;
-		height: auto;
-		position: relative;
-	}
-	
-	#contentVideo video {
-		display: block;
-		width: 100%;
-	}
-	
-	#canvas {
-		display: block;
-		width: 100%;
-		top: 0;
-		position: absolute;
-	}
-	
-	#snap, #save {
-		margin-left: auto;
-		margin-right: auto;
-		width: 6rem;
-		height: 6rem;
-		left: 0;
-		right: 0;
-		bottom: 12%;
-		z-index: 10;
-	}
-	
-	#compatibilite {
-		visibility: hidden;
-		overflow: hidden;
-	}
-  }
-  
   #menuBottom {
 	position: fixed;
 	width: 100%;
@@ -292,4 +240,61 @@
   .invisible {
 	visibility: hidden;
 	overflow: hidden;
+  }
+  
+  /* Téléphones */
+  @media only screen and (max-width: 767px) {
+	 
+	 .imageFilter {
+		width: 49%;
+		margin: 0;
+	 }
+	 
+	#filter img {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	
+	#filter-container {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		display: table;
+	}
+	
+	#filter {
+		display: table-cell;
+		vertical-align: middle;
+		height: auto;
+		position: relative;
+	}
+	
+	#contentVideo video {
+		display: block;
+		width: 100%;
+	}
+	
+	#canvas {
+		display: block;
+		width: 100%;
+		top: 0;
+		position: absolute;
+	}
+	
+	#snap, #save {
+		margin-left: auto;
+		margin-right: auto;
+		width: 6rem;
+		height: 6rem;
+		left: 0;
+		right: 0;
+		bottom: 12%;
+		z-index: 10;
+	}
+	
+	#compatibilite {
+		visibility: hidden;
+		overflow: hidden;
+	}
   }
