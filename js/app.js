@@ -11,36 +11,20 @@ window.addEventListener( "load", function() {
     var canvas = document.querySelector( 'canvas' );
     var context = canvas.getContext( '2d' );
     var w, h, ratio, filterHeight, filterWidth;
-
-    navigator.getUserMedia = ( navigator.getUserMedia ||
-        navigator.webkitGetUserMedia ||
-        navigator.mozGetUserMedia ||
-        navigator.msGetUserMedia );
 	
 	/*
 		On applique l'API getUserMedia pour obtenir le flux vidéo de la camera
 	*/
-    if ( navigator.getUserMedia ) {
-
-        navigator.getUserMedia( {
-                video: true
-            },
-
-            function( localMediaStream ) {
-                video.src = window.URL.createObjectURL( localMediaStream );
-				
-				console.log("Screen: "+screen.height + ":" + screen.width);
-				
-                video.play();
-				
-				console.log(video.height + ":" + video.width);
-            },
-
-            function( err ) {
-                console.log( "The following error occured: " + err );
-            }
-
-        );
+    if ( navigator.mediaDevices.getUserMedia ) {
+	  var constraints = { video: true }; 
+      navigator.mediaDevices.getUserMedia(constraints)
+      .then(function(mediaStream) {
+        video.srcObject = mediaStream;
+        video.onloadedmetadata = function(e) {
+          video.play();
+        };
+      })
+      .catch(function(err) { console.log(err.name + ": " + err.message); });
 
     } else {
         console.log( "getUserMedia not supported" );
