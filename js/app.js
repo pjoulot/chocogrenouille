@@ -71,33 +71,13 @@ window.addEventListener( "load", function() {
 		}
 		
 		//Dessiner le filtre
-		var filterimg = new Image();
-		filterimg.src = document.getElementById("filterImage").src;
-		
-		var imgFilter = document.getElementById("filterImage");
-		var imgFilterHeight = imgFilter.height;
-		var imgFilterWidth = imgFilter.width;
-		
-		
-		
-		//ratio par rapport à la hauteur
-		var ratioHeigthResize = imgFilterHeight / video.videoHeight;
-		var widthVideo = video.videoWidth * ratioHeigthResize;
-		var heightVideo = imgFilterHeight;	
-		
-		var imgWidth = Math.round(imgFilterWidth * (canvas.height /imgFilterHeight ));
-		var imgHeight = canvas.height;
-
-		var offsetCenterImg = ((widthVideo - imgFilterWidth)/2) * (canvas.width / widthVideo);
-		
-		context.drawImage( filterimg, offsetCenterImg, 0, imgWidth, imgHeight );
+        drawFilter();
 		
 		//Ecrire le nom
 		drawName();
 		
 		//Ecrire le numero de la carte
 		drawNumero();
-		
 		
 		context.globalAlpha=1;
 		buttonSeePreview.click();
@@ -169,7 +149,24 @@ window.addEventListener( "load", function() {
 	drawFilter = function() {
 		var filterimg = new Image();
 		filterimg.src = document.getElementById("filterImage").src;
-		context.drawImage( filterimg, 0, 0, w, h );
+		
+		var imgFilter = document.getElementById("filterImage");
+		var imgFilterHeight = imgFilter.height;
+		var imgFilterWidth = imgFilter.width;
+		
+		
+		
+		//ratio par rapport à la hauteur
+		var ratioHeigthResize = imgFilterHeight / video.videoHeight;
+		var widthVideo = video.videoWidth * ratioHeigthResize;
+		var heightVideo = imgFilterHeight;	
+		
+		var imgWidth = Math.round(imgFilterWidth * (canvas.height /imgFilterHeight ));
+		var imgHeight = canvas.height;
+
+		var offsetCenterImg = ((widthVideo - imgFilterWidth)/2) * (canvas.width / widthVideo);
+		
+		context.drawImage( filterimg, offsetCenterImg, 0, imgWidth, imgHeight );
 	}
 	
 	/*
