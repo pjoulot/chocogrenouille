@@ -40,22 +40,7 @@ window.addEventListener( "load", function() {
 		
         w = queryfilter.width;
         h = queryfilter.height;
-		
-		
-		
-		console.log("queryfilter Size");
-		console.log(w);
-		console.log(h);
-        
-		
-		console.log("Video Offset");
-		console.log(video.offsetWidth);
-		console.log(video.offsetHeight);
-		console.log("Video Size");
-		console.log(video.videoWidth);
-		console.log(video.videoHeight);
-		
-		
+				
         canvas.width = video.videoWidth;
 		canvas.height = video.videoHeight;
 		
@@ -259,12 +244,6 @@ window.addEventListener( "load", function() {
 		image.src = imgFilterName;
 		filter.innerHTML = "";
 		filter.appendChild(image);
-		var filterImage = document.getElementById("filterImage");
-		//video.width = video.videoWidth;
-		//video.height = video.videoHeight;
-		
-		console.log("Video Dimensions"+video.videoWidth+"x"+video.videoHeight);
-		console.log("Filter Dimensions"+filterImage.width+"x"+filterImage.height);
 	}
 	
 	/*
