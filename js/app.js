@@ -133,7 +133,11 @@ window.addEventListener( "load", function() {
 		context.shadowBlur = 5;
 		context.shadowColor = "black";
 		context.globalAlpha=0.75;
-		context.fillText(document.getElementById("numero").value, canvas.width * pourcentNumeroWidth, pourcentNumeroHeight * canvas.height);
+		var widthFilterPosition = getFilterPosition() + 84;
+		// Reposionner le numéro selon le nombre de chiffre dans le numéro.
+		var cipherCount = document.getElementById("numero").value.length;
+		widthFilterPosition -= ((cipherCount * 13) / 2);
+		context.fillText(document.getElementById("numero").value, widthFilterPosition, pourcentNumeroHeight * canvas.height);
 		
 		//Réinitialisation des ombres
 		context.shadowColor = "transparent";
@@ -154,7 +158,21 @@ window.addEventListener( "load", function() {
 		var imgFilterHeight = imgFilter.height;
 		var imgFilterWidth = imgFilter.width;
 		
+		var imgWidth = Math.round(imgFilterWidth * (canvas.height /imgFilterHeight ));
+		var imgHeight = canvas.height;
+
+		var offsetCenterImg = getFilterPosition();
 		
+		context.drawImage( filterimg, offsetCenterImg, 0, imgWidth, imgHeight );
+	}
+	
+	/*
+	 * Get filter position.
+	 */
+	 getFilterPosition = function() {
+		var imgFilter = document.getElementById("filterImage");
+		var imgFilterHeight = imgFilter.height;
+		var imgFilterWidth = imgFilter.width;
 		
 		//ratio par rapport à la hauteur
 		var ratioHeigthResize = imgFilterHeight / video.videoHeight;
@@ -166,8 +184,8 @@ window.addEventListener( "load", function() {
 
 		var offsetCenterImg = ((widthVideo - imgFilterWidth)/2) * (canvas.width / widthVideo);
 		
-		context.drawImage( filterimg, offsetCenterImg, 0, imgWidth, imgHeight );
-	}
+		return offsetCenterImg;
+	 }
 	
 	/*
 		Fonction qui rafraichie l'image si on change le filtre, le nom ou le numéro
